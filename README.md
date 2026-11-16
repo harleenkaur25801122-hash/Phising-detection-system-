@@ -150,20 +150,6 @@ cv2.imwrite("test.png", img)   # remember to scale up + add a white border
 ```
 or `pip install qrcode` and use `qrcode.make(...)`.
 
-## Threat Intelligence Notes
-
-`threat_intel.py` adds three network-bound checks on top of the existing
-verdict, purely for display — they never change the ML score or verdict:
-- **SSL**: connects on port 443 and inspects the certificate (issuer, expiry)
-- **Redirects**: follows the URL's redirect chain and flags domain changes
-- **VirusTotal**: reads back an existing report for the URL (v3 API) if
-  `VIRUSTOTAL_API_KEY` is set — it does not submit new scans, to stay within
-  free-tier quotas
-
-Each check fails gracefully (returns a clear "unavailable"/"not configured"
-status) if there's no internet access or no API key, so the app always keeps
-working end-to-end offline — same philosophy as the existing WHOIS/DNS checks.
-
 ## Scan History & Dashboard Notes
 
 Every scan (URL, domain, QR, or batch row) is written to `data/history.db`
@@ -183,4 +169,4 @@ reads the same table to show totals, a verdict breakdown donut chart, a
 - Add user accounts so scan history can be per-user instead of shared
 - how to run :-streamlit run app.py
 - web server link :-http://localhost:8501
-- 
+  
