@@ -181,3 +181,6 @@ reads the same table to show totals, a verdict breakdown donut chart, a
 - Package as a browser extension for real-time link scanning
 - Add temporal validation (train on older phishing URLs, test on newer ones) since phishing patterns evolve
 - Add user accounts so scan history can be per-user instead of shared
+- how to run :-streamlit run app.py
+- web server link :-http://localhost:8501
+- 
